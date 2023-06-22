@@ -1,3 +1,17 @@
 <!-- <pre>
     {{movies | json}}
 </pre> -->
+<div class="container-fluid">
+
+    <h1>Films à l'affiche</h1>
+
+    <div class="row">
+        <div *ngFor="let movie of movies" class="col-12 col-md-3 ">
+            <div class="card">
+                <img [title]="movie.resume" [src]="movie.image_landscape | printImg" [alt]="movie.titre">
+                <h2>{{movie.titre}}</h2>
+            </div>
+        </div>
+    </div>
+
+</div>
