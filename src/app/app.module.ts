@@ -7,13 +7,15 @@ import { MovieListComponent } from './movie-list/movie-list.component';
 import { SearchbarComponent } from './searchbar/searchbar.component';
 import { ActionbarComponent } from './actionbar/actionbar.component';
 import { HttpClientModule } from '@angular/common/http';
+import { PrintImgPipe } from './shared/pipes/print-img.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     MovieListComponent,
     SearchbarComponent,
-    ActionbarComponent
+    ActionbarComponent,
+    PrintImgPipe
   ],
   imports: [
     BrowserModule,
