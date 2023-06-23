@@ -1,0 +1,16 @@
+.card {
+    font-size: 20px;
+    margin-bottom: 20px;
+    transition-duration: .2s;
+}
+
+.card:hover {
+    transform: scale(1.1);
+    z-index: 1;
+    cursor: pointer;
+
+}
+
+.card h2 {
+    font-size: 1.2rem;
+}

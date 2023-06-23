@@ -8,6 +8,7 @@ import { SearchbarComponent } from './searchbar/searchbar.component';
 import { ActionbarComponent } from './actionbar/actionbar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PrintImgPipe } from './shared/pipes/print-img.pipe';
+import { StarsComponent } from './shared/components/stars/stars.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { PrintImgPipe } from './shared/pipes/print-img.pipe';
     MovieListComponent,
     SearchbarComponent,
     ActionbarComponent,
-    PrintImgPipe
+    PrintImgPipe,
+    StarsComponent
   ],
   imports: [
     BrowserModule,

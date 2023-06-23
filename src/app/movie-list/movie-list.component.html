@@ -8,8 +8,11 @@
     <div class="row">
         <div *ngFor="let movie of movies" class="col-12 col-md-3 ">
             <div class="card">
-                <img [title]="movie.resume" [src]="movie.image_landscape | printImg" [alt]="movie.titre">
-                <h2>{{movie.titre}}</h2>
+                <img [src]="movie.image_landscape | printImg" [alt]="movie.titre">
+                <div class="card-body">
+                    <h2>{{movie.titre}}</h2>
+                    <app-stars [score]="movie.score"></app-stars>
+                </div>
             </div>
         </div>
     </div>
