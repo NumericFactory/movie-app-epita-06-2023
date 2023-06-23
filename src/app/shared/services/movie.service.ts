@@ -40,13 +40,29 @@ export class MovieService {
       .subscribe(data => this._movies$.next(data))
   }
 
-  /**
-   * 
-   * @param userInput 
-   */
-  searchMovie(userInput: string) {
+  /*
+    searchMovies()
+    rôle :> faire une request HTTP[GET] à l'API theMovieDB
+          url API : https://api.themoviedb.org/3
+          endpoint : /search/movie
+          queryString : query:string api_key:string, language:string
+          (le paramètre nommé query a pour valeur la saisie de l'utilisateur)
+  */
+  searchMovie(userInput: string): Observable<MovieModel[]> {
+    let endpoint = '/search/movie';
+    let options = new HttpParams()
+      .set('api_key', this.TMDB_APIKEY)
+      .set('language', 'fr')
+      .set('query', userInput);
+    return this.http.get(this.TMDB_API + endpoint, { params: options })
+      .pipe(map((response: any) =>
+        response.results.map((movie: any) => new MovieModel(movie))
+      ))
 
   }
+
+
+
 
 
 
