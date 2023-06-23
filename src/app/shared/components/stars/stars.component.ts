@@ -8,5 +8,12 @@ import { Component, Input } from '@angular/core';
 export class StarsComponent {
 
   @Input() score!: number;
+  scoreArr: Array<number> = []
+
+  ngOnInit() {
+    this.score = Math.round(this.score / 2)
+    this.scoreArr = new Array(this.score).fill(0); // [0,0,0] si score=3
+
+  }
 
 }
