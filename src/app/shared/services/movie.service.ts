@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http'
 import { BehaviorSubject, Observable, map } from 'rxjs';
 import { MovieModel } from '../models/movie.model';
+import { environment } from '../../../environments/environment.development';
 
 
 @Injectable({
@@ -10,6 +11,7 @@ import { MovieModel } from '../models/movie.model';
 export class MovieService {
 
   TMDB_API = 'https://api.themoviedb.org/3';
+  TMDB_APIKEY = environment.APIKEY_TMDB
 
   private _movies$ = new BehaviorSubject<MovieModel[]>([]);
 
@@ -26,7 +28,7 @@ export class MovieService {
   getMoviesFromApi(): void {
     let endpoint = '/discover/movie'
     let options = new HttpParams()
-      .set('api_key', 'efdeb661aaa006b1e4f36f990a5fd8fd')
+      .set('api_key', this.TMDB_APIKEY)
       .set('language', 'fr')
       .set('page', '1');
 
@@ -37,6 +39,21 @@ export class MovieService {
       ))
       .subscribe(data => this._movies$.next(data))
   }
+
+  /**
+   * 
+   * @param userInput 
+   */
+  searchMovie(userInput: string) {
+
+  }
+
+
+
+
+
+
+
 
 
   /** getter/setter */
