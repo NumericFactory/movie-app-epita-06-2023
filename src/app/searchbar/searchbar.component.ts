@@ -8,20 +8,14 @@ import { MovieModel } from '../shared/models/movie.model';
   styleUrls: ['./searchbar.component.scss']
 })
 export class SearchbarComponent {
-
+  // variable d'affichage
   movieResults: MovieModel[] = [];
 
-  constructor(private movieSvc: MovieService) {
-
-  }
+  constructor(private movieSvc: MovieService) { }
 
   onKeyupInput(inputStr: string) {
     this.movieSvc.searchMovie(inputStr)
-      .subscribe(data => {
-        this.movieResults = data;
-        console.log(this.movieResults)
-      })
-
+      .subscribe(data => this.movieResults = data)
   }
 
 }

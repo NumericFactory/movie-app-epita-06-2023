@@ -1,7 +1,11 @@
-<input #inputTag (keyup)="onKeyupInput(inputTag.value)" class="form-control" type="text"
-    placeholder="Rechercher des films...">
+<div>
+    <input #inputTag (keyup)="onKeyupInput(inputTag.value)" class="form-control" type="text"
+        placeholder="Rechercher des films...">
 
-<!-- Afficher la liste de résultats-->
-
-<!-- Syntaxe de template reference (#)-->
-<!-- Syntaxe de l'event ()="" -->
+    <!-- Afficher la liste de résultats-->
+    <ul *ngIf="movieResults.length>0" class="list-group list-group-flush">
+        <li class="list-group-item" *ngFor="let movie of movieResults">
+            {{movie.titre}}
+        </li>
+    </ul>
+</div>

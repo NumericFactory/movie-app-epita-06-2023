@@ -66,15 +66,13 @@ export class MovieService {
 
 
 
-
-
-
-
-
-
   /** getter/setter */
   get movies$(): Observable<MovieModel[]> {
     return this._movies$.asObservable();
+  }
+
+  setMovies$(data: MovieModel[]) {
+    this._movies$.next(data)
   }
 
 
