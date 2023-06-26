@@ -19,6 +19,8 @@ export class MovieDetailComponent {
   ) { }
 
   ngOnInit() {
+
+
     // je VEUX récupérer movieId du movie en param dans l'URL
     console.log(this.route.snapshot.params['movieId']) // {movieId: '123456'}
     this.movieId = this.route.snapshot.params['movieId'];
@@ -30,10 +32,6 @@ export class MovieDetailComponent {
       console.log(data);
       this.movie = data;
     });
-
-
-
-
 
 
     // faire la request 2: /movie/{id}/videos

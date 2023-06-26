@@ -16,11 +16,12 @@ export class MovieModel {
     score!: number;
     genres!: Genre[];
     date!: Date;
+    video!: string
 
     constructor(movieFromApi: any) {
         this.id = movieFromApi.id;
         this.titre = movieFromApi.title;
-        this.duration = undefined
+        this.duration = movieFromApi.runtime ? movieFromApi.runtime : undefined
         this.resume = movieFromApi.overview;
         this.image_landscape = movieFromApi.backdrop_path;
         this.image_portrait = movieFromApi.poster_path;

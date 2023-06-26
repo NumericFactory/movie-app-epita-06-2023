@@ -11,6 +11,7 @@ import { PrintImgPipe } from './shared/pipes/print-img.pipe';
 import { StarsComponent } from './shared/components/stars/stars.component';
 import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 import { ErrorInterceptor } from './error.interceptor';
+import { PrintDurationPipe } from './shared/pipes/print-duration.pipe';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { ErrorInterceptor } from './error.interceptor';
     PrintImgPipe,
     StarsComponent,
     MovieDetailComponent,
+    PrintDurationPipe,
   ],
   imports: [
     BrowserModule,
