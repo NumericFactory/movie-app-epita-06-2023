@@ -9,7 +9,7 @@
 
     <div class="row">
         <div *ngFor="let movie of movies" class="col-12 col-md-3 ">
-            <div routerLink="/detail" class="card">
+            <div [routerLink]="['/detail', movie.id]" class="card">
                 <img [src]="movie.image_landscape | printImg" [alt]="movie.titre">
                 <div class="card-body">
                     <h2>{{movie.titre}}</h2>

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MovieService } from '../shared/services/movie.service';
 import { MovieModel } from '../shared/models/movie.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-movie-list',
@@ -11,7 +12,7 @@ export class MovieListComponent {
 
   movies: MovieModel[] = [];
 
-  constructor(private movieSvc: MovieService) { }
+  constructor(private movieSvc: MovieService, private router: Router) { }
 
   ngOnInit() {
     // 1 faire la request GET à TMDB
