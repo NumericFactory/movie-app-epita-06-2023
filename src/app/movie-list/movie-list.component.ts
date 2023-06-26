@@ -22,4 +22,8 @@ export class MovieListComponent {
 
   }
 
+  checkScore(score: number) {
+    console.log(score)
+  }
+
 }

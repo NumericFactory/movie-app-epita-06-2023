@@ -51,7 +51,7 @@ export class MovieService {
   searchMovie(userInput: string): Observable<MovieModel[]> {
     let endpoint = '/search/movie';
     let options = new HttpParams()
-      .set('api_key', this.TMDB_APIKEY)
+      .set('api_key', 'this.TMDB_APIKEY')
       .set('language', 'fr')
       .set('query', userInput);
     return this.http.get(this.TMDB_API + endpoint, { params: options })

@@ -6,9 +6,12 @@ import { AppComponent } from './app.component';
 import { MovieListComponent } from './movie-list/movie-list.component';
 import { SearchbarComponent } from './searchbar/searchbar.component';
 import { ActionbarComponent } from './actionbar/actionbar.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { PrintImgPipe } from './shared/pipes/print-img.pipe';
 import { StarsComponent } from './shared/components/stars/stars.component';
+import { MovieDetailComponent } from './movie-detail/movie-detail.component';
+import { ErrorInterceptor } from './error.interceptor';
+
 
 @NgModule({
   declarations: [
@@ -17,14 +20,15 @@ import { StarsComponent } from './shared/components/stars/stars.component';
     SearchbarComponent,
     ActionbarComponent,
     PrintImgPipe,
-    StarsComponent
+    StarsComponent,
+    MovieDetailComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
