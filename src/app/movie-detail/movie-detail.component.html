@@ -1,7 +1,7 @@
-<div class="container-fluid">
+<div *ngIf="movie" class="container-fluid">
 
     <div class="d-flex">
-        <button class="btn"><i class="fas fa-arrow-left"></i></button>
+        <button routerLink="/" class="btn"><i class="fas fa-arrow-left"></i></button>
         <h1>{{movie.titre}}</h1>
     </div>
 
@@ -9,6 +9,13 @@
 
         <div class="col-12 col-md-6">
             <!-- Integration iframe Ytube-->
+            <div class="video-container">
+                <iframe width="560" height="315" [src]="getVideoUrl()" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen></iframe>
+
+            </div>
+
         </div>
 
         <div class="col-12 col-md-6">

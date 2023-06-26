@@ -87,8 +87,12 @@ export class MovieService {
           endpoint : /movie/{id}/videos
           queryString : api_key:string, language:string
    */
-  getVideos() {
-
+  getVideos(id: number): Observable<any> {
+    let endpoint: string = '/movie/' + id + '/videos';
+    let params = new HttpParams()
+      .set('api_key', this.TMDB_APIKEY)
+      .set('language', 'fr');
+    return this.http.get(this.TMDB_API + endpoint, { params })
   }
 
 
