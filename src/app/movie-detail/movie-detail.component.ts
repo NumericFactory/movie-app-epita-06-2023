@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MovieService } from '../shared/services/movie.service';
+import { MovieModel } from '../shared/models/movie.model';
 
 @Component({
   selector: 'app-movie-detail',
@@ -10,6 +11,7 @@ import { MovieService } from '../shared/services/movie.service';
 export class MovieDetailComponent {
 
   movieId!: number;
+  movie!: MovieModel;
 
   constructor(
     private route: ActivatedRoute,
@@ -25,7 +27,8 @@ export class MovieDetailComponent {
     // https://developer.themoviedb.org/reference/movie-details
     // (coder la méthode getDetails() dans movie.service.ts)
     this.movieSvc.getDetails(this.movieId).subscribe(data => {
-      console.log(data)
+      console.log(data);
+      this.movie = data;
     });
 
 
