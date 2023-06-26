@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http'
-import { BehaviorSubject, Observable, map } from 'rxjs';
+import { BehaviorSubject, Observable, filter, map } from 'rxjs';
 import { MovieModel } from '../models/movie.model';
 import { environment } from '../../../environments/environment.development';
 
@@ -60,6 +60,37 @@ export class MovieService {
       ))
 
   }
+
+  /**
+   * getDetails()
+   * Role : faire une request HTTP[GET] à l'API theMovieDB
+          url API : https://api.themoviedb.org/3
+          endpoint : /movie/{id}
+          queryString : api_key:string, language:string
+   */
+  getDetails(id: number): Observable<MovieModel> {
+    let endpoint: string = '/movie/' + id;
+    let options = new HttpParams()
+      .set('api_key', this.TMDB_APIKEY)
+      .set('language', 'fr');
+    return this.http.get(this.TMDB_API + endpoint, { params: options })
+      .pipe(
+        map(response => new MovieModel(response))
+      ) // en sortie de pipe, on a un Observable
+  }
+
+
+  /**
+   * getVideos()
+   * Role : faire une request HTTP[GET] à l'API theMovieDB
+          url API : https://api.themoviedb.org/3
+          endpoint : /movie/{id}/videos
+          queryString : api_key:string, language:string
+   */
+  getVideos() {
+
+  }
+
 
 
 

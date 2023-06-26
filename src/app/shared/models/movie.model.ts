@@ -25,9 +25,11 @@ export class MovieModel {
         this.image_landscape = movieFromApi.backdrop_path;
         this.image_portrait = movieFromApi.poster_path;
         this.score = movieFromApi.vote_average;
-        this.genres = movieFromApi.genre_ids.map((item: number) => {
-            return { id: item, name: '' }
-        });
+        this.genres = movieFromApi.genre_ids != undefined ?
+            movieFromApi.genre_ids.map((item: number) => {
+                return { id: item, name: '' }
+            }) :
+            [...movieFromApi.genres]
         this.date = new Date(movieFromApi.release_date)
     }
 
