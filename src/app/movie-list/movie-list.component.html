@@ -13,7 +13,7 @@
                 <img [src]="movie.image_landscape | printImg" [alt]="movie.titre">
                 <div class="card-body">
                     <h2>{{movie.titre}}</h2>
-                    <app-stars></app-stars>
+                    <app-stars [score]="movie.score"></app-stars>
                 </div>
             </div>
         </div>
