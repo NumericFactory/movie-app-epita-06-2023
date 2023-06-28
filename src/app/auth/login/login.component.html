@@ -6,7 +6,7 @@
             <input formControlName="email" id="email-id" type="text" class="form-control">
             <p *ngIf="isSubmitted && loginForm.controls['email'].hasError('required')" class="error">Email requis</p>
             <p *ngIf="isSubmitted && loginForm.controls['email'].hasError('email')" class="error">Renseigner un email
-                valide</p>
+                valid</p>
         </div>
         <div>
             <label for="pwd-id" class="form-label">Votre mot de passe</label>
