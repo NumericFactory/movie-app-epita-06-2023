@@ -12,7 +12,8 @@ export class LoginComponent {
 
   constructor(
     private fb: FormBuilder,
-    private userSvc: UserService) { }
+    private userSvc: UserService,
+  ) { }
 
   loginForm!: FormGroup;
   isSubmitted: boolean = false;
@@ -33,11 +34,10 @@ export class LoginComponent {
           next: (response) => {
             console.log('response', response);
             localStorage.setItem('token', response.token)
-          },
-          error: (err) => {
-            console.log('dans le component: ', err)
-          },
-          // complete: () => { console.log('complete') }
+            // afficher un message de succès ('Vous êtes connecté(e)!')
+            // rediriger l'utilisateur vers la page list
+
+          }
         })
     }
   }

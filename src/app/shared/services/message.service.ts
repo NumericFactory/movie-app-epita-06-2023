@@ -19,8 +19,10 @@ export class MessageService {
     if (type == 'info') {
       cssClass = 'message-info'
     }
+
     this._snackbar.open(msg, 'Fermer', {
-      panelClass: cssClass
+      panelClass: cssClass,
+      duration: 5000
     })
   }
 }
