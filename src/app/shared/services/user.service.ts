@@ -1,7 +1,7 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment.development';
-import { Observable } from 'rxjs';
+import { Observable, catchError, throwError } from 'rxjs';
 
 interface Credentials {
   email: string
@@ -22,6 +22,19 @@ export class UserService {
   login(credentials: Credentials): Observable<any> {
     let endpoint = '/users/login'
     return this.http.post(this.USER_SERVER + endpoint, credentials)
+      // On peut traiter les erreurs HTTP dans un pipe
+      .pipe(
+        catchError((err: any): Observable<any> => {
+          if (err instanceof HttpErrorResponse) {
+            switch (err.status) {
+              case 400:
+                console.log('Erreur Status :  400')
+                break;
+            }
+          }
+          return throwError(() => new Error('Email ou mot de passe Invalide'))
+        })
+      )
   }
 
   register() {

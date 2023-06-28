@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from 'src/app/shared/services/user.service';
@@ -28,9 +29,20 @@ export class LoginComponent {
     if (this.loginForm.valid) {
       // poster les data au back-end
       this.userSvc.login(this.loginForm.value)
-        .subscribe((response: any) => {
-          // on sauvegarde le token dans le localStorage
-          localStorage.setItem('token', response.token)
+        .subscribe({
+          next: (response) => {
+            console.log('response', response);
+            localStorage.setItem('token', response.token)
+          },
+          error: (err) => {
+            console.log('error', err)
+            if (err instanceof HttpErrorResponse) {
+              if (err.status == 400) {
+                console.log('Email ou mot de passe invalide')
+              }
+            }
+          },
+          complete: () => { console.log('complete') }
         })
     }
   }
