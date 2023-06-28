@@ -19,3 +19,18 @@ body {
     margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+
+.message-error {
+    --mdc-snackbar-container-color: rgb(175, 1, 1);
+    color: #eee;
+}
+
+.message-success {
+    --mdc-snackbar-container-color: green;
+    color: #eee
+}
+
+.message-info {
+    --mdc-snackbar-container-color: rgb(0, 64, 128);
+    color: #eee
+}
