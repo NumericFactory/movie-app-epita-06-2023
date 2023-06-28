@@ -12,6 +12,8 @@ import { StarsComponent } from './shared/components/stars/stars.component';
 import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 import { ErrorInterceptor } from './error.interceptor';
 import { PrintDurationPipe } from './shared/pipes/print-duration.pipe';
+import { LoginComponent } from './auth/login/login.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -24,11 +26,13 @@ import { PrintDurationPipe } from './shared/pipes/print-duration.pipe';
     StarsComponent,
     MovieDetailComponent,
     PrintDurationPipe,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }],
   bootstrap: [AppComponent]
