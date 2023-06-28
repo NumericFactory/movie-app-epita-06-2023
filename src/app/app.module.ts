@@ -14,6 +14,10 @@ import { ErrorInterceptor } from './error.interceptor';
 import { PrintDurationPipe } from './shared/pipes/print-duration.pipe';
 import { LoginComponent } from './auth/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+// modules Angular
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 @NgModule({
@@ -27,12 +31,15 @@ import { ReactiveFormsModule } from '@angular/forms';
     MovieDetailComponent,
     PrintDurationPipe,
     LoginComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

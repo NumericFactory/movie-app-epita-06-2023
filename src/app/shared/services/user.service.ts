@@ -2,6 +2,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment.development';
 import { Observable, catchError, tap, throwError } from 'rxjs';
+import { MessageService } from './message.service';
 
 interface Credentials {
   email: string
@@ -14,7 +15,9 @@ interface Credentials {
 export class UserService {
 
   USER_SERVER = environment.USER_SERVER
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private messageSvc: MessageService) { }
 
   /*
   
@@ -47,7 +50,9 @@ export class UserService {
             if (err instanceof HttpErrorResponse) {
               if (err.status == 400) {
                 console.log('dans tap() : ', err);
-                alert('Mauvais Email ou MPD');
+                // alert('Mauvais Email ou MPD');
+                this.messageSvc.show('Mauvais Email ou MPD')
+                localStorage.removeItem('token')
               }
             }
           },
