@@ -1,6 +1,8 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { MessageService } from 'src/app/shared/services/message.service';
 import { UserService } from 'src/app/shared/services/user.service';
 
 @Component({
@@ -13,6 +15,8 @@ export class LoginComponent {
   constructor(
     private fb: FormBuilder,
     private userSvc: UserService,
+    private messageSvc: MessageService,
+    private router: Router
   ) { }
 
   loginForm!: FormGroup;
@@ -33,10 +37,13 @@ export class LoginComponent {
         .subscribe({
           next: (response) => {
             console.log('response', response);
-            localStorage.setItem('token', response.token)
+            localStorage.setItem('token', response.token);
+            localStorage.setItem('userId', response.user.id);
+            localStorage.setItem('userName', response.user.email);
             // afficher un message de succès ('Vous êtes connecté(e)!')
+            this.messageSvc.show('Vous êtes connecté(e)', 'success')
             // rediriger l'utilisateur vers la page list
-
+            this.router.navigate(['/'])
           }
         })
     }

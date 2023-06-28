@@ -33,6 +33,10 @@
 
             <h2>Durée</h2>
             <p>{{movie.duration | printDuration}}</p>
+
+            <hr>
+            <h2>Vos Commentaires</h2>
+            <app-comment-form [movieId]="movie.id"></app-comment-form>
         </div>
     </div>
 

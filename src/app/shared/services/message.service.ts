@@ -1,6 +1,12 @@
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
+// export enum MessageType {
+//   error = 'error',
+//   success = 'success',
+//   info = 'info'
+// }
+
 @Injectable({
   providedIn: 'root'
 })
@@ -8,7 +14,7 @@ export class MessageService {
 
   constructor(private _snackbar: MatSnackBar) { }
 
-  show(msg: string, type?: string) {
+  show(msg: string, type?: 'error' | 'success' | 'info') {
     let cssClass = 'message-info'
     if (type == 'error') {
       cssClass = 'message-error'
@@ -22,7 +28,9 @@ export class MessageService {
 
     this._snackbar.open(msg, 'Fermer', {
       panelClass: cssClass,
-      duration: 5000
+      duration: 10000,
+      horizontalPosition: 'center',
+      verticalPosition: 'top'
     })
   }
 }

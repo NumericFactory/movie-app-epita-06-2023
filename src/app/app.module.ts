@@ -18,6 +18,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // modules Angular
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { CommentFormComponent } from './comment-form/comment-form.component';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MovieDetailComponent,
     PrintDurationPipe,
     LoginComponent,
+    CommentFormComponent,
 
   ],
   imports: [
