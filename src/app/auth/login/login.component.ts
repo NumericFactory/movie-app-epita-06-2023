@@ -34,9 +34,9 @@ export class LoginComponent {
             console.log('response', response);
             localStorage.setItem('token', response.token)
           },
-          // error: (err) => {
-          //   console.log('je suis la callback error je m\'execute')
-          // },
+          error: (err) => {
+            console.log('dans le component: ', err)
+          },
           // complete: () => { console.log('complete') }
         })
     }
