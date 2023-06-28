@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CommentService } from '../shared/services/comment.service';
 
 @Component({
   selector: 'app-comment-form',
@@ -13,7 +14,7 @@ export class CommentFormComponent {
   @Input() movieId!: number;
 
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private commentSvc: CommentService) { }
 
   ngOnInit() {
     this.commentForm = this.fb.group({
@@ -29,6 +30,10 @@ export class CommentFormComponent {
   onSubmitCommentForm(ev: SubmitEvent) {
     ev.preventDefault();
     this.isSubmitted = true;
+    if (this.commentForm.valid) {
+      this.commentSvc.postComment(this.commentForm.value)
+        .subscribe(response => console.log(response))
+    }
     console.log(this.commentForm.value)
   }
 
