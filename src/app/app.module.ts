@@ -10,7 +10,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { PrintImgPipe } from './shared/pipes/print-img.pipe';
 import { StarsComponent } from './shared/components/stars/stars.component';
 import { MovieDetailComponent } from './movie-detail/movie-detail.component';
-import { ErrorInterceptor } from './error.interceptor';
+import { ErrorInterceptor } from './shared/error.interceptor';
 import { PrintDurationPipe } from './shared/pipes/print-duration.pipe';
 import { LoginComponent } from './auth/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';

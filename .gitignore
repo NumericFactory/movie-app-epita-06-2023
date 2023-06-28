@@ -14,8 +14,6 @@ yarn-error.log
 # Environments
 /src/environments
 
-/src/app/error.interceptor.ts
-
 # IDEs and editors
 .idea/
 .project
