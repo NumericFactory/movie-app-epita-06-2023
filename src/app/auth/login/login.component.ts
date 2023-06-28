@@ -34,15 +34,10 @@ export class LoginComponent {
             console.log('response', response);
             localStorage.setItem('token', response.token)
           },
-          error: (err) => {
-            console.log('error', err)
-            if (err instanceof HttpErrorResponse) {
-              if (err.status == 400) {
-                console.log('Email ou mot de passe invalide')
-              }
-            }
-          },
-          complete: () => { console.log('complete') }
+          // error: (err) => {
+          //   console.log('je suis la callback error je m\'execute')
+          // },
+          // complete: () => { console.log('complete') }
         })
     }
   }

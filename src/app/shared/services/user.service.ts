@@ -25,14 +25,24 @@ export class UserService {
       // On peut traiter les erreurs HTTP dans un pipe
       .pipe(
         catchError((err: any): Observable<any> => {
-          if (err instanceof HttpErrorResponse) {
-            switch (err.status) {
-              case 400:
-                console.log('Erreur Status :  400')
-                break;
+
+          return throwError(() => {
+            console.log('erreur dans le throwError', err)
+            if (err instanceof HttpErrorResponse) {
+              switch (err.status) {
+                case 400:
+                  console.log('Erreur Status :  400')
+                  new Error('Email ou password Invalide')
+                  break;
+                case 500:
+                  console.log('Erreur Status :  500')
+                  new Error('Erreur serveur')
+                  break;
+              }
             }
-          }
-          return throwError(() => new Error('Email ou mot de passe Invalide'))
+
+
+          })
         })
       )
   }
