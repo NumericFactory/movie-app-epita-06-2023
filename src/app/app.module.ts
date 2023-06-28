@@ -19,6 +19,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // modules Angular
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { CommentFormComponent } from './comment-form/comment-form.component';
+import { TokenInterceptor } from './shared/token.interceptor';
 
 
 @NgModule({
@@ -43,7 +44,10 @@ import { CommentFormComponent } from './comment-form/comment-form.component';
     BrowserAnimationsModule,
     MatSnackBarModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
