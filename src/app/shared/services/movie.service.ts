@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http'
 import { BehaviorSubject, Observable, filter, map } from 'rxjs';
 import { MovieModel } from '../models/movie.model';
-import { environment } from '../../../environments/environment.development';
+import { environment } from '../../../environments/environment';
 
 
 @Injectable({
