@@ -51,7 +51,7 @@ export class UserService {
               if (err.status == 400) {
                 console.log('dans tap() : ', err);
                 // alert('Mauvais Email ou MPD');
-                this.messageSvc.show('Mauvais Email ou MPD')
+                this.messageSvc.show('Mauvais Email ou MPD');
                 localStorage.removeItem('token')
               }
             }
