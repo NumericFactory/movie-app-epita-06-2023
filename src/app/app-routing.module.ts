@@ -6,8 +6,9 @@ import { LoginComponent } from './auth/login/login.component';
 
 const routes: Routes = [
   { path: '', component: MovieListComponent },
+  { path: 'detail/user', component: MovieDetailComponent },
   { path: 'detail/:movieId', component: MovieDetailComponent },
-  { path: 'login', component: LoginComponent }
+  { path: 'login', component: LoginComponent },
 ];
 
 @NgModule({
